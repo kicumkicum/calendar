@@ -9,11 +9,11 @@ import React from 'react';
 let Arrow = (props) => {
 	if (props.type === ArrowType.NEXT) {
 		return (
-			<span class='right button' id='next'> &rang; </span>
+			<span className='right button' id='next'> &rang; </span>
 		);
 	} else {
 		return (
-			<span class='left button' id='prev'> &lang; </span>
+			<span className='left button' id='prev'> &lang; </span>
 		);
 
 	}

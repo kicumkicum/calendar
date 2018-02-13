@@ -13,6 +13,6 @@ export default (props) => {
 	month = month[0].toUpperCase() + month.substr(1);
 
 	return (
-		<span class='month-year' id='label'> {`${month} ${year}`} </span>
+		<span className='month-year' id='label'> {`${month} ${year}`} </span>
 	);
 };
