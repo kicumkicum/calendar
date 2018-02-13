@@ -22,7 +22,7 @@ const getWeekDays = (locale) => {
 export default (props) => {
 	const weekDays = getWeekDays(props.locale);
 	return (
-		<table id="days">
+		<table id='days'>
 			<tbody>
 			<tr>{weekDays.map((weekDay) => (<WeekDay name={weekDay} />))}</tr>
 			</tbody>
