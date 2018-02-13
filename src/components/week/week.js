@@ -21,22 +21,10 @@ const getWeekDays = (locale) => {
  */
 export default (props) => {
 	const weekDays = getWeekDays(props.locale);
-
-	const days = [];
-	for (let i = 0; i < 7; i++) {
-		days.push((<WeekDay name={new Date().setDay} />));
-	}
-
-	const arr = weekDays.map((weekDay) => {
-		return (<WeekDay name={weekDay} />);
-	});
-
 	return (
 		<table id="days">
 			<tbody>
-			<tr>
-				{arr}
-			</tr>
+			<tr>{weekDays.map((weekDay) => (<WeekDay name={weekDay} />))}</tr>
 			</tbody>
 		</table>
 	);
