@@ -24,7 +24,7 @@ export default (props) => {
 	return (
 		<table id='days'>
 			<tbody>
-			<tr>{weekDays.map((weekDay) => (<WeekDay name={weekDay} />))}</tr>
+			<tr>{weekDays.map((weekDay, i) => (<WeekDay name={weekDay} key={String(i)} />))}</tr>
 			</tbody>
 		</table>
 	);
