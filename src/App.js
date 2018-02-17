@@ -9,13 +9,11 @@ import WeekDays from './components/week/week';
 import Month from './components/month/month';
 import {Calendar} from './services/calendar';
 import * as calendarUtils from './utils/calendar';
+import reducer from './reducers';
 
-function reducer(state, action) {
-	console.log(action);
-	return state || [];
-}
 
-const store = createStore(reducer);
+const store = createStore(reducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() => console.log('subscribe', store.getState()));
 
