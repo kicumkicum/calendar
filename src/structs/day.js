@@ -19,7 +19,7 @@ export default class DayType {
 	 */
 	isToday;
 	/**
-	 * @type {boolean}
+	 * @type {(boolean|undefined)}
 	 */
 	isBlocked;
 }
