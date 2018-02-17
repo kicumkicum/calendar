@@ -6,6 +6,7 @@ import {Arrow, ArrowType} from './components/arrow';
 import WeekDays from './components/week/week';
 import Month from './components/month/month';
 import {Calendar} from './services/calendar';
+import * as calendarUtils from './utils/calendar';
 
 class App extends Component {
 	constructor() {
@@ -16,6 +17,7 @@ class App extends Component {
 		 * @private
 		 */
 		this._calendar = new Calendar();
+		this._calendar.selectMonth(2018, calendarUtils.Months.FEBRUARY);
 	}
 	render() {
 		const locale = navigator.language;
@@ -27,7 +29,7 @@ class App extends Component {
 					<Arrow type={ ArrowType.NEXT }/>
 				</div>
 				<WeekDays locale={ locale }/>
-				<Month weeksList={this._calendar.createWeeksList(createStub(), createStub(), createStub(), 2)}/>
+				<Month weeksList={calendarUtils.createWeeksList(createStub(), createStub(), createStub(), 2)}/>
 			</div>
 		);
 	}

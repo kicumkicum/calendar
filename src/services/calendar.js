@@ -1,73 +1,52 @@
-import DayType from '../structs/day';
+import {WeekDays, Months, createDaysList} from '../utils/calendar';
 
 const Calendar = class {
+	constructor() {
+		/**
+		 * @type {Months}
+		 * @private
+		 */
+		this._month = undefined;
+
+		/**
+		 * @type {number}
+		 * @private
+		 */
+		this._year = undefined;
+
+		/**
+		 * @type {WeekDays}
+		 * @private
+		 */
+		this._firstWeekDay = undefined;
+	}
+
 	/**
-	 * @param {Array<DayType>} currentMonth
-	 * @param {Array<DayType>} prevMonth
-	 * @param {Array<DayType>} nextMonth
-	 * @param {number} monthStartDay
-	 * @return {Array<Array<DayType>>}
+	 * @param {Months} month
+	 * @param {number} year
 	 */
-	createWeeksList(currentMonth, prevMonth, nextMonth, monthStartDay) {
-		const weeksData = [];
-		let j = 0;
+	selectMonth(year, month) {
+		this._year = year;
+		this._month = month;
+		const daysList = createDaysList(this._year, this._month);
+		console.log(daysList);
+	}
 
-		currentMonth.forEach((day, i) => {
-			j = Math.floor((i + monthStartDay) / 7);
+	/**
+	 * @param {Date} date
+	 */
+	selectRange(date) {
+		this._year = date.getFullYear();
+		this._month = date.getMonth();
+		const daysList = createDaysList()
+	}
 
-			weeksData[j] = weeksData[j] || [];
-			weeksData[j].push(day);
-		});
 
-		const prevItemsLength = 7 - weeksData[0].length;
-		const prevItems = prevMonth.slice(prevMonth.length - prevItemsLength)
-			.map((day) => {
-				return {...day, isBlocked: true};
-			});
-		weeksData[0] = prevItems.concat(weeksData[0]);
-
-		const nextItemsLength = 7 - weeksData[j].length;
-		const nextItems = nextMonth.slice(0, nextItemsLength)
-			.map((day) => {
-				return {...day, isBlocked: true};
-			});
-		weeksData[j] = weeksData[j].concat(nextItems);
-
-		return weeksData;
+	/**
+	 * @param {WeekDays} day
+	 */
+	selectFirstWeekDay(day) {
 	}
 }
 
-
-/**
- * @enum {string}
- */
-const WeekDays = {
-	MONDAY: 'monday',
-	TUESDAY: 'tuesday',
-	WEDNESDAY: 'wednesday',
-	THURSDAY: 'thursday',
-	FRIDAY: 'friday',
-	SATURDAY: 'saturday',
-	SUNDAY: 'sunday'
-};
-
-
-/**
- * @enum {number}
- */
-const Months = {
-	JANUARY: 0,
-	FEBRUARY: 1,
-	MARCH: 2,
-	APRIL: 3,
-	MAY: 4,
-	JUNE: 5,
-	JULY: 6,
-	AUGUST: 7,
-	SEPTEMBER: 8,
-	OCTOBER: 9,
-	NOVEMBER: 10,
-	DECEMBER: 11
-};
-
-export {Calendar, WeekDays, Months};
+export {Calendar};
