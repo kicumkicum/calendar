@@ -1,61 +1,33 @@
-body {
-  background: #e0e0e0;
+#cal {
+  margin:50px auto;
+  width:1020px;
+  height: 820px;
+  font: 13px/1 Helvetical, san-serif;
+  display:table;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
 }
 
-#cal {
-  -moz-box-shadow:0px 3px 3px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow:0px 3px 3px rgba(0, 0, 0, 0.25);
-  margin:50px auto;
-  font: 13px/1.5 "Helvetica Neue", Helvatica, Arial, san-serif;
-  display:table;
-}
 #cal .header {
-  cursor:default;
-  background: #cd310d;
-  background: -moz-linear-gradient(top, #b32b0c, #cd310d);
-  background: -webkit-gradient(linear, left top, left bottom, from(#b32b0c), to(#cd310d));
-  height: 34px;
+  height: 70px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfd), to(#e5e7ed));
   position: relative;
-  color:#fff;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  font-weight:bold;
-  text-shadow:0px -1px 0 #87260C;
-  text-transform: uppercase;
+  color:#717e9c;
+  font: 30px/2.3 Helvetical, sans-serif;
+  font-weight: 600;
 }
+
 #cal .header span {
   display:inline-block;
-  line-height:34px;
 }
-#cal .header .hook {
-  width: 9px;
-  height: 28px;
-  position: absolute;
-  bottom:60%;
-  border-radius:10px;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-  background:#ececec;
-  background: -moz-linear-gradient(right top, #fff, #827e7d);
-  background: -webkit-gradient(linear, right top, right bottom, from(#fff), to(#827e7d));
-  box-shadow:0px -1px 2px rgba(0, 0, 0, 0.65 );
-  -moz-box-shadow:0px -1px 2px rgba(0, 0, 0, 0.65 );
-  -webkit-box-shadow:0px -1px 2px rgba(0, 0, 0, 0.65 );
-}
+
 #cal table {
-  background:#fff;
   border-collapse:collapse;
 }
 #cal td {
-  color:#2b2b2b;
-  width:60px;
-  height:60px;
-  line-height:60px;
+  width:147px;
+  height:141px;
   text-align:center;
-  border:1px solid #e6e6e6;
-  cursor:default;
+  font-weight: 600;
+  border:0.1px solid #e6e6e6;
+   cursor:default;
 }

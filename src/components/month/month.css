@@ -15,15 +15,6 @@
 	text-align: right;
 	text-combine-upright: unset;
 }
-#cal #cal-frame td:not(.nil):hover {
-	color:#fff;
-	text-shadow: #6C1A07 0px -1px;
-	background:#CD310D;
-	background: -moz-linear-gradient(top, #b32b0c, #cd310d);
-	background: -webkit-gradient(linear, left top, left bottom, from(#b32b0c), to(#cd310d));
-	-moz-box-shadow:0px 0px 0px;
-	-webkit-box-shadow:0px 0px 0px;
-}
 #cal #cal-frame td span:not(.event):not(.date) {
 	font-size:80%;
 	position:relative;
@@ -39,4 +30,7 @@
 }
 #cal #cal-frame table.temp {
 	position:absolute;
+}
+#cal-frame .curr .nil {
+	background:#f7f7f7;
 }
