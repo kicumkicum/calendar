@@ -71,9 +71,7 @@ export const createDaysList = (year, month) => {
  */
 export const isToday = (date) => {
 	const now = new Date;
-	return date.getFullYear() === now.getFullYear() &&
-		date.getMonth() === now.getMonth() &&
-		date.getDate() === now.getDate();
+	return isEqDay(now, date);
 };
 
 

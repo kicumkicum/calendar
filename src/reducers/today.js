@@ -9,11 +9,8 @@ const initialState = [
  * @return {Array<Date>}
  */
 const today = (state = initialState, action) => {
-	if (action.type === todayActionType.TODAY_CHANGE) {
-		return [
-			...state,
-			action.payload
-		];
+	if (action.type === todayActions.TODAY_CHANGE) {
+		return action.payload;
 	}
 
 	return state;
@@ -23,9 +20,9 @@ const today = (state = initialState, action) => {
 /**
  * @enum {string}
  */
-const todayActionType = {
+const todayActions = {
 	TODAY_CHANGE: 'today-change'
 };
 
 
-export {today, todayActionType};
+export {today, todayActions};

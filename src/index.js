@@ -12,6 +12,7 @@ import reducer from './reducers';
 import * as calendarUtils from './utils/calendar';
 import EventService from './services/events';
 import LocalStorage from './services/storage';
+import TodayWatcher from './services/today-watcher';
 
 
 const eventsStorage = new LocalStorage('events');
@@ -22,7 +23,9 @@ const calendar = new Calendar();
 calendar.selectMonth(2018, calendarUtils.Months.FEBRUARY);
 
 const store = createStore(reducer({calendar, eventService}), composeWithDevTools(applyMiddleware(thunk)));
+const todayWatcher = new TodayWatcher(store);
 
+todayWatcher.startWatch(new Date(), 1000 * 60);
 store.subscribe(() => console.log('subscribe', store.getState()));
 
 ReactDOM.render(
