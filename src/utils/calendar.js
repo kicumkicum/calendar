@@ -5,7 +5,7 @@
  * @param {WeekDays} _monthStartDay
  * @return {Array<Array<DayType>>}
  */
-const createWeeksList = (currentMonth, prevMonth, nextMonth, _monthStartDay) => {
+export const createWeeksList = (currentMonth, prevMonth, nextMonth, _monthStartDay) => {
 	const weeksData = [];
 	const monthStartDay = WeekDaysMap.indexOf(_monthStartDay);
 	let j = 0;
@@ -39,7 +39,7 @@ const createWeeksList = (currentMonth, prevMonth, nextMonth, _monthStartDay) => 
  * @param {Months}  month
  * @return {Array<DayType>}
  */
-const createDaysList = (year, month) => {
+export const createDaysList = (year, month) => {
 	const date = new Date(year, /** @type {number} */(month), 1);
 	const firstMonthDay = date.getDay();
 
@@ -69,17 +69,56 @@ const createDaysList = (year, month) => {
  * @param {Date} date
  * @return {boolean}
  */
-const isToday = (date) => {
+export const isToday = (date) => {
 	const now = new Date;
 	return date.getFullYear() === now.getFullYear() &&
 		date.getMonth() === now.getMonth() &&
 		date.getDate() === now.getDate();
 };
 
+
+/**
+ * @param {Date} dateA
+ * @param {Date} dateB
+ * @return {boolean}
+ */
+export const isEqDay = (dateA, dateB) => {
+	if (isEqMonth(dateA, dateB)) {
+		return dateA.getDate() === dateB.getDate();
+	}
+
+	return false;
+};
+
+
+/**
+ * @param {Date} dateA
+ * @param {Date} dateB
+ * @return {boolean}
+ */
+export const isEqMonth = (dateA, dateB) => {
+	if (isEqYear(dateA, dateB)) {
+		return dateA.getMonth() === dateB.getMonth();
+	}
+
+	return false;
+};
+
+
+/**
+ * @param {Date} dateA
+ * @param {Date} dateB
+ * @return {boolean}
+ */
+export const isEqYear = (dateA, dateB) => {
+	return dateA.getFullYear() === dateB.getFullYear();
+};
+
+
 /**
  * @enum {string}
  */
-const WeekDays = {
+export const WeekDays = {
 	MONDAY: 'monday',
 	TUESDAY: 'tuesday',
 	WEDNESDAY: 'wednesday',
@@ -92,7 +131,7 @@ const WeekDays = {
 /**
  * @type {Array<WeekDays>}
  */
-const WeekDaysMap = [
+export const WeekDaysMap = [
 	WeekDays.SUNDAY,
 	WeekDays.MONDAY,
 	WeekDays.TUESDAY,
@@ -105,7 +144,7 @@ const WeekDaysMap = [
 /**
  * @enum {number}
  */
-const Months = {
+export const Months = {
 	JANUARY: 0,
 	FEBRUARY: 1,
 	MARCH: 2,
@@ -119,6 +158,3 @@ const Months = {
 	NOVEMBER: 10,
 	DECEMBER: 11
 };
-
-
-export {createWeeksList, createDaysList, WeekDays, Months};
