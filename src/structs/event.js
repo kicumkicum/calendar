@@ -1,4 +1,10 @@
 export default class Event {
+	/**
+	 * @param {string} id
+	 * @param {string} name
+	 * @param {string} description
+	 * @param {Date|string} date
+	 */
 	constructor(id, name, description, date) {
 		/**
 		 * @type {string}
@@ -16,6 +22,6 @@ export default class Event {
 		/**
 		 * @type {Date}
 		 */
-		this.date = date;
+		this.date = new Date(date);
 	}
 }

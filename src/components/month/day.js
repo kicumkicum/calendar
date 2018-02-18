@@ -3,39 +3,66 @@ import {connect} from 'react-redux';
 
 import './day.css';
 import DayType from '../../structs/day';
+import {eventsActions} from '../../reducers/events';
+import * as calendarUtils from '../../utils/calendar';
+import Event from '../../structs/event';
 
 
 /**
  * @param {{
- *      day: DayType
+ *      day: DayType,
+ *      events: Array<Event>
  * }} props
  * @return {*}
  */
 const DayComponent = (props) => {
-	const { isToday, isBlocked, events } = props.day;
+	const { isToday, isBlocked } = props.day;
 	const classes = `${isBlocked ? 'nil' : ''} ${isToday() ? 'today' : ''}`;
-	let eventsMessage = '';
-	if (events.length) {
-		eventsMessage = events.left + ' events';
-	}
+
+	const myEvents = props.events.filter((event) => {
+		return calendarUtils.isEqDay(event.date, props.day.date);
+	});
+//		{/*<td className={classes} onClick={() => props.onDayClick(props.day.events)}>*/}
 
 	return (
-		<td className={classes} onClick={() => props.onDayClick(props.day)}>
+		<td className={classes} onClick={() => !isBlocked && props.onDayClick(props.day.date)}>
 			<div>
-				<span className={'event'}>{eventsMessage}</span>
+				<span className={'event'}>{createEventsMessage(myEvents)}</span>
 				<span className={'date'} >{props.day.toString()}</span>
 			</div>
 		</td>
 	);
 };
 
+
+/**
+ * @param {Array<Event>} events
+ * @return {string}
+ */
+const createEventsMessage = (events) => {
+	let eventsMessage = '';
+	if (events.length) {
+		eventsMessage = `${events.length} event`;
+		if (events.length > 1) {
+			eventsMessage += 's';
+		}
+	}
+
+	return eventsMessage;
+};
+
+
 const Day = connect(
-	(state) => ({}),
+	(state) => ({
+		events: state.events
+	}),
 	(dispatch) => ({
-		onDayClick: () => {
-			dispatch()
+		onDayClick: (date) => {
+			// dispatch({type: eventsActions.SHOW_EVENTS, payload: events})
+			dispatch({type: eventsActions.ADD_EVENT, payload: {description: 'abscuaoeus aueotuaoeuoaeu', date}})
 		}
 	})
 )(DayComponent);
+
 
 export { Day };

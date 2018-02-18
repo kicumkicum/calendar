@@ -2,6 +2,12 @@ import EventsService from '../services/events';
 
 
 /**
+ * @const {number}
+ */
+const MAX_LENGTH = 10;
+
+
+/**
  * @param {EventsService} eventService
  * @return {function(*=, *)}
  */
@@ -10,8 +16,8 @@ const events = (eventService) => {
 
 	return (state = initialState, action) => {
 		if (action.type === eventsActions.ADD_EVENT) {
-			const {name, description, date} = action.payload;
-			const newEvent = eventService.addEvent(name, description, date);
+			const {description, date} = action.payload;
+			const newEvent = eventService.addEvent(description.substr(0, MAX_LENGTH), description, date);
 
 			return [
 				...state,

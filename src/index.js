@@ -11,9 +11,13 @@ import {Calendar} from './services/calendar';
 import reducer from './reducers';
 import * as calendarUtils from './utils/calendar';
 import EventService from './services/events';
+import LocalStorage from './services/storage';
+
+
+const eventsStorage = new LocalStorage('events');
+const eventService = new EventService(eventsStorage);
 
 const calendar = new Calendar();
-const eventService = new EventService(window.localStorage);
 
 calendar.selectMonth(2018, calendarUtils.Months.FEBRUARY);
 

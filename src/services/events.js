@@ -29,13 +29,11 @@ export default class EventsService {
 	 * @return {Array<Event>}
 	 */
 	getAllEvents() {
-		return [
-			new Event(1, 'event1', 'description event 1', new Date()),
-			new Event(1, 'event1', 'description event 1', new Date()),
-			new Event(1, 'event1', 'description event 1', new Date()),
-			new Event(1, 'event1', 'description event 1', new Date()),
-			new Event(1, 'event1', 'description event 1', new Date())
-		];
+		return this._storage.getAll()
+			.map((item) => {
+				const {name, description, id, date} = item.value;
+				return new Event(id, name, description, date);
+			}, this);
 	}
 
 	/**
@@ -45,9 +43,9 @@ export default class EventsService {
 	 * @return {Event}
 	 */
 	addEvent(name, description, date) {
-		const id = date.toISOString();
+		const id = date.toISOString() + Math.random().toString().substr(2, 10);
 		const event = new Event(id, name, description, date);
-		this._storage.setItem(id, JSON.stringify(event));
+		this._storage.setItem(id, event);
 
 		return event;
 	}
