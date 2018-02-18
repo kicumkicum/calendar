@@ -11,8 +11,7 @@ import {Day} from './day';
 export default (props) => {
 	return (
 		<tr>
-			{console.log('component week', props)}
-			{props.days.map((day, i) => (<Day {...day} key={i}/>))}
+			{props.days.map((day, i) => (<Day day={day} key={i}/>))}
 		</tr>
 	);
 }

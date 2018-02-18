@@ -3,7 +3,7 @@ import WeekDay from './week-day';
 
 
 const getWeekDays = (locale) => {
-	const baseDate = new Date(Date.UTC(2017, 0, 2)); // just a Monday
+	const baseDate = new Date(Date.UTC(2017, 0, 1));
 	const weekDays = [];
 
 	for (let i = 0; i < 7; i++) {

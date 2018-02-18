@@ -52,7 +52,7 @@ const createDaysList = (year, month) => {
 		const _date = new Date(year, /** @type {number} */(month), i + 1);
 		const day = {
 			date: _date,
-			weekDay: WeekDaysMap[(firstMonthDay - 1 + i) % 7],
+			weekDay: WeekDaysMap[(firstMonthDay + i) % 7],
 			events: [],
 			isToday: () => isToday(day.date),
 			toString: () => day.date.getDate(),

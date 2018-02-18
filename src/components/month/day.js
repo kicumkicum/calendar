@@ -7,11 +7,11 @@ import DayType from '../../structs/day';
  * @return {*}
  */
 const Day = (props) => {
-	const { isToday, isBlocked } = props;
+	const { isToday, isBlocked } = props.day;
 	const classes = `${isBlocked ? 'nil' : ''} ${isToday() ? 'today' : ''}`;
 
 	return (
-		<td className={classes} >{props.toString()}</td>
+		<td className={classes} >{props.day.toString()}</td>
 	);
 };
 
