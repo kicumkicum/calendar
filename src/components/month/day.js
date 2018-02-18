@@ -3,17 +3,15 @@ import DayType from '../../structs/day';
 
 
 /**
- * @param {{
- *      day: DayType
- * }} props
+ * @param {DayType} props
  * @return {*}
  */
 const Day = (props) => {
-	const { date, events, isToday, isBlocked } = props;
-	const classes = `${isBlocked ? 'nil' : ''} ${isToday ? 'today' : ''}`;
+	const { isToday, isBlocked } = props;
+	const classes = `${isBlocked ? 'nil' : ''} ${isToday() ? 'today' : ''}`;
 
 	return (
-		<td className={classes} >{date}</td>
+		<td className={classes} >{props.toString()}</td>
 	);
 };
 

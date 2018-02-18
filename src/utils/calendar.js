@@ -48,15 +48,17 @@ const createDaysList = (year, month) => {
 	const daysCount = a.getDate();
 
 	// TODO: Optimize it
-	const _date = new Date(year, /** @type {number} */(month), 1);
 	for (let i = 0; i < daysCount; i++) {
-		daysList.push({
-			date: i + 1,
+		const _date = new Date(year, /** @type {number} */(month), i + 1);
+		const day = {
+			date: _date,
 			weekDay: WeekDaysMap[(firstMonthDay - 1 + i) % 7],
 			events: [],
-			isToday: isToday(_date),
+			isToday: () => isToday(day.date),
+			toString: () => day.date.getDate(),
 			isBlocked: undefined
-		});
+		};
+		daysList.push(day);
 	}
 
 	return daysList;
@@ -71,7 +73,7 @@ const isToday = (date) => {
 	const now = new Date;
 	return date.getFullYear() === now.getFullYear() &&
 		date.getMonth() === now.getMonth() &&
-		date.getDay() === now.getDay();
+		date.getDate() === now.getDate();
 };
 
 /**
@@ -91,13 +93,13 @@ const WeekDays = {
  * @type {Array<WeekDays>}
  */
 const WeekDaysMap = [
+	WeekDays.SUNDAY,
 	WeekDays.MONDAY,
 	WeekDays.TUESDAY,
 	WeekDays.WEDNESDAY,
 	WeekDays.THURSDAY,
 	WeekDays.FRIDAY,
 	WeekDays.SATURDAY,
-	WeekDays.SUNDAY
 ];
 
 /**
