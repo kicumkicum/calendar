@@ -1,4 +1,5 @@
 import {WeekDays, Months, createDaysList} from '../utils/calendar';
+import * as MonthStruct from '../structs/month';
 
 const Calendar = class {
 	constructor() {
@@ -15,6 +16,12 @@ const Calendar = class {
 		this._year = undefined;
 
 		/**
+		 * @type {Array<Day>}
+		 * @private
+		 */
+		this._days = [];
+
+		/**
 		 * @type {WeekDays}
 		 * @private
 		 */
@@ -22,30 +29,86 @@ const Calendar = class {
 	}
 
 	/**
-	 * @param {Months} month
+	 * @return {MonthStruct}
+	 */
+	getCurrentMonth() {
+		return {
+			year: this._year,
+			month: this._month,
+			days: this._days
+		};
+	}
+
+	/**
 	 * @param {number} year
+	 * @param {Months} month
+	 * @return {MonthStruct}
+	 */
+	getMonth(year, month) {
+		return {
+			year: year,
+			month: month,
+			days: createDaysList(year, month)
+		};
+	}
+
+	/**
+	 * @param {number} year
+	 * @param {Months} month
+	 * @return {MonthStruct}
+	 */
+	getPrevMonth(year, month) {
+		const date = new Date(year, month, 1);
+		date.setMonth(month - 1);
+		return this.getMonth(date.getFullYear(), date.getMonth());
+	}
+
+	/**
+	 * @param {number} year
+	 * @param {Months} month
+	 * @return {MonthStruct}
+	 */
+	getNextMonth(year, month) {
+		const date = new Date(year, month, 1);
+		date.setMonth(month + 1);
+		return this.getMonth(date.getFullYear(), date.getMonth());
+	}
+
+	/**
+	 * @param {number} year
+	 * @param {Months} month
+	 * @return {MonthStruct}
 	 */
 	selectMonth(year, month) {
 		this._year = year;
 		this._month = month;
-		const daysList = createDaysList(this._year, this._month);
-		console.log(daysList);
+		this._days = createDaysList(this._year, this._month);
+
+		return {
+			year: this._year,
+			month: this._month,
+			days: this._days
+		};
 	}
 
 	/**
-	 * @param {Date} date
+	 * @return {MonthStruct}
 	 */
-	selectRange(date) {
-		this._year = date.getFullYear();
-		this._month = date.getMonth();
-		const daysList = createDaysList()
+	selectNextMonth() {
+		const date = new Date(this._year, /** @type {number} */(this._month), 1);
+		date.setMonth(date.getMonth() + 1);
+
+		return this.selectMonth(date.getFullYear(), /** @type {Months} */(date.getMonth()));
 	}
 
-
 	/**
-	 * @param {WeekDays} day
+	 * @return {MonthStruct}
 	 */
-	selectFirstWeekDay(day) {
+	selectPrevMonth() {
+		const date = new Date(this._year, /** @type {number} */(this._month), 1);
+		date.setMonth(date.getMonth() - 1);
+
+		return this.selectMonth(date.getFullYear(), /** @type {Months} */(date.getMonth()));
 	}
 }
 
