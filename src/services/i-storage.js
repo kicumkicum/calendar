@@ -1,15 +1,23 @@
+/**
+ * @interface
+ */
 export default class IStorage {
 	/**
 	 * @param {string} key
-	 * @param {string} value
+	 * @param {*} value
 	 */
 	setItem(key, value) {}
 
 	/**
 	 * @param {string} key
-	 * @return {string}
+	 * @return {*}
 	 */
 	getItem(key) {}
+
+	/**
+	 * @return {Array<*>}
+	 */
+	getAll() {}
 
 	/**
 	 * @param {string} key
