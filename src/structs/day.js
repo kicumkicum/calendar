@@ -3,9 +3,9 @@
  */
 export default class DayType {
 	/**
-	 * @type {number}
+	 * @type {Date}
 	 */
-	day;
+	date;
 	/**
 	 * @type {WeekDays}
 	 */

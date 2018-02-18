@@ -1,4 +1,5 @@
 import {Calendar} from '../services/calendar';
+import {eventsActions} from './events';
 
 
 /**
@@ -31,6 +32,10 @@ const month = (calendar) => {
 					nextMonth: calendar.getNextMonth(selectedMonth.year, selectedMonth.month)
 				};
 			}
+		} else if (action.type === eventsActions.ADD_EVENT) {
+			// TODO:
+		} else if (action.type === eventsActions.REMOVE_EVENT) {
+			// TODO:
 		}
 
 		return state;
