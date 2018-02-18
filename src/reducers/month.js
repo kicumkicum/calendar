@@ -1,26 +1,40 @@
-const currentDate = new Date();
-const initialState = [{
-	month: currentDate.getMonth(),
-	year: currentDate.getFullYear()
-}];
+import {Calendar} from '../services/calendar';
 
 
 /**
- * @param {Array<Date>} state
- * @param {Object} action
- * @return {Array<Date>}
+ * @param {Calendar} calendar
+ * @return {function(Array<Date>, Object): Array<Date>}
  */
-const month = (state = initialState, action) => {
-	if (action.type === monthActionType.PRESS_ARROW) {
-		// TODO: Resolve cyclical deps
-		if (action.payload === 'next') {
-			// TODO: change current month
-		} else if (action.payload === 'prev') {
+const month = (calendar) => {
+	const selectedMonth = calendar.getCurrentMonth();
+	const initialState = {
+		selectedMonth: selectedMonth,
+		prevMonth: calendar.getPrevMonth(selectedMonth.year, selectedMonth.month),
+		nextMonth: calendar.getNextMonth(selectedMonth.year, selectedMonth.month)
+	};
 
+	return (state = initialState, action) => {
+		if (action.type === monthActionType.PRESS_ARROW) {
+			// TODO: Resolve cyclical deps
+			if (action.payload === 'next') {
+				const selectedMonth = calendar.selectNextMonth();
+				return {
+					selectedMonth: selectedMonth,
+					prevMonth: calendar.getPrevMonth(selectedMonth.year, selectedMonth.month),
+					nextMonth: calendar.getNextMonth(selectedMonth.year, selectedMonth.month)
+				};
+			} else if (action.payload === 'prev') {
+				const selectedMonth = calendar.selectPrevMonth();
+				return {
+					selectedMonth: selectedMonth,
+					prevMonth: calendar.getPrevMonth(selectedMonth.year, selectedMonth.month),
+					nextMonth: calendar.getNextMonth(selectedMonth.year, selectedMonth.month)
+				};
+			}
 		}
-	}
 
-	return state;
+		return state;
+	};
 };
 
 
