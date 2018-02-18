@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import {monthActionType} from '../reducers/month';
+
 
 const ArrowComponent = class extends Component {
 	/**
@@ -43,6 +45,7 @@ const ArrowType = {
 	PREV: 'prev'
 };
 
+
 const Arrow = connect(
 	(state) => ({}),
 	(dispatch) => ({
@@ -50,8 +53,9 @@ const Arrow = connect(
 		 * @param {ArrowType} type
 		 */
 		onArrowClick: (type) => {
-			dispatch({type: 'PRESS_ARROW', payload: type})
+			dispatch({type: monthActionType.PRESS_ARROW, payload: type})
 		}
 	}))(ArrowComponent);
+
 
 export { Arrow, ArrowType };

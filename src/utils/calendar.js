@@ -2,11 +2,12 @@
  * @param {Array<DayType>} currentMonth
  * @param {Array<DayType>} prevMonth
  * @param {Array<DayType>} nextMonth
- * @param {number} monthStartDay
+ * @param {WeekDays} _monthStartDay
  * @return {Array<Array<DayType>>}
  */
-const createWeeksList = (currentMonth, prevMonth, nextMonth, monthStartDay) => {
+const createWeeksList = (currentMonth, prevMonth, nextMonth, _monthStartDay) => {
 	const weeksData = [];
+	const monthStartDay = WeekDaysMap.indexOf(_monthStartDay);
 	let j = 0;
 
 	currentMonth.forEach((day, i) => {

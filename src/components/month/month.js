@@ -1,6 +1,8 @@
 import React from 'react';
 import DayType from '../../structs/day';
 import Week from './week';
+import {connect} from 'react-redux';
+import * as calendarUtils from '../../utils/calendar';
 
 
 /**
@@ -9,7 +11,7 @@ import Week from './week';
  * }} props
  * @return {*}
  */
-export default (props) => {
+const Month = (props) => {
 	return (
 		<div id='cal-frame'>
 			<table className='curr'>
@@ -19,4 +21,18 @@ export default (props) => {
 			</table>
 		</div>
 	);
-}
+};
+
+export default connect(
+	(state) => {
+		const currentMonth = state.month.selectedMonth.days;
+		const prevMonth = state.month.prevMonth.days;
+		const nextMonth = state.month.nextMonth.days;
+		const weeksList = calendarUtils.createWeeksList(currentMonth, prevMonth, nextMonth, currentMonth[0].weekDay);
+
+		return {
+			weeksList
+		}
+	},
+	(dispatch) => ({})
+)(Month);
