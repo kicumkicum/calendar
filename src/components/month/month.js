@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import './month.css';
 import DayType from '../../structs/day';
 import Week from './week';
-import {connect} from 'react-redux';
 import * as calendarUtils from '../../utils/calendar';
 
 

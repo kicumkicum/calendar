@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import './arrow.css';
 import {monthActionType} from '../reducers/month';
 
 

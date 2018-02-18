@@ -1,0 +1,7 @@
+#cal #cal-frame td.today {
+	background:#ededed;
+	color:#8c8c8c;
+	box-shadow:1px 1px 0px #fff inset;
+	-moz-box-shadow:1px 1px 0px #fff inset;
+	-webkit-box-shadow:1px 1px 0px #fff inset;
+}

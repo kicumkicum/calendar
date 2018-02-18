@@ -1,4 +1,6 @@
 import React from 'react';
+
+import './week.css';
 import WeekDay from './week-day';
 
 
