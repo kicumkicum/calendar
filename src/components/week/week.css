@@ -1,13 +1,13 @@
 #cal #days td {
-	height:30px;
-	text-transform:uppercase;
-	color:#8991a2;
+	height: 30px;
+	text-transform: uppercase;
+	color: #8991a2;
 	font: 10px Helvetical, sans-serif;
 	font-weight: 600;
 	letter-spacing: 1px;
-	box-shadow:  inset 0px 0px 20px rgba(0, 0, 0, .1);
+	box-shadow: inset 0px 0px 20px rgba(0, 0, 0, .1);
 	background: -webkit-gradient(linear, left top, left bottom, from(#dadce2), to(#d2d5dc));
 }
 #cal #days td:not(:last-child) {
-	border-right:0px solid #fff;
+	border-right: 0px solid #fff;
 }

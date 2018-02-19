@@ -1,9 +1,9 @@
 #cal {
-  margin:50px auto;
-  width:1020px;
+  margin: 50px auto;
+  width: 1020px;
   height: 820px;
   font: 13px/1 Helvetical, san-serif;
-  display:table;
+  display: table;
   box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
 }
 
@@ -11,23 +11,23 @@
   height: 70px;
   background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfd), to(#e5e7ed));
   position: relative;
-  color:#717e9c;
+  color: #717e9c;
   font: 30px/2.3 Helvetical, sans-serif;
   font-weight: 600;
 }
 
 #cal .header span {
-  display:inline-block;
+  display: inline-block;
 }
 
 #cal table {
-  border-collapse:collapse;
+  border-collapse: collapse;
 }
 #cal td {
-  width:147px;
-  height:141px;
-  text-align:center;
+  width: 147px;
+  height: 141px;
+  text-align: center;
   font-weight: 600;
-  border:0.1px solid #e6e6e6;
-   cursor:default;
+  border: 0.1px solid #e6e6e6;
+  cursor: default;
 }
