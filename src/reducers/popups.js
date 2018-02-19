@@ -14,11 +14,12 @@ export default (eventsService) => {
 			return {
 				type: popupsTypes.EVENTS_LIST,
 				payload: {
-					events: events
+					events: events,
+					day: action.payload
 				}
 			};
 		} else if (action.type === popupsActions.CLOSE_POPUP) {
-			return state.slice(0, state.length - 1);
+			return {};
 		}
 
 		return state;
