@@ -6,7 +6,6 @@ import {Arrow, ArrowType} from './components/arrow';
 import WeekDays from './components/week/week';
 import Month from './components/month/month';
 
-
 class App extends Component {
 	render() {
 		const locale = navigator.language;

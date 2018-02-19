@@ -6,6 +6,7 @@ import DayType from '../../structs/day';
 import {eventsActions} from '../../reducers/events';
 import * as calendarUtils from '../../utils/calendar';
 import Event from '../../structs/event';
+import EventsList from '../events-list/events-list';
 
 
 /**
@@ -30,6 +31,7 @@ const DayComponent = (props) => {
 				<span className={'event'}>{createEventsMessage(myEvents)}</span>
 				<span className={'date'} >{props.day.toString()}</span>
 			</div>
+			<EventsList events={myEvents} />
 		</td>
 	);
 };
