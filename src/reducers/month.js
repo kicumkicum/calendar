@@ -6,7 +6,7 @@ import {eventsActions} from './events';
  * @param {Calendar} calendar
  * @return {function(Array<Date>, Object): Array<Date>}
  */
-const month = (calendar) => {
+export default (calendar) => {
 	const selectedMonth = calendar.getCurrentMonth();
 	const initialState = {
 		selectedMonth: selectedMonth,
@@ -46,9 +46,6 @@ const month = (calendar) => {
 /**
  * @enum {string}
  */
-const monthActionType = {
+export const monthActionType = {
 	PRESS_ARROW: 'press-arrow'
 };
-
-
-export {month, monthActionType};

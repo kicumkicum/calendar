@@ -1,0 +1,40 @@
+.eventList {
+	display: block;
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: opacity 400ms ease-in;
+}
+
+.eventList {
+	width: 292px;
+	height: 432px;
+	margin: 15% auto;
+	/*position: relative;*/
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #f3f3f3;
+	border: 2px solid #d8d8d8;
+}
+
+.eventList.event {
+	/*height: 23px;*/
+	/*width: 275px;*/
+	/*color: #708ac2;*/
+	/*margin-top: 50px;*/
+}
+
+.eventList.input {
+	position: fixed;
+	bottom: 0;
+	width: 80%;
+	vertical-align: bottom;
+}
+
+#send_info{
+	color: #ffffff;
+	font-size: 16px;
+}

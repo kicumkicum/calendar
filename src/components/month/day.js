@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import './day.css';
 import DayType from '../../structs/day';
-import {eventsActions} from '../../reducers/events';
+import {popupsActions} from '../../reducers/popups';
 import * as calendarUtils from '../../utils/calendar';
 import Event from '../../structs/event';
 import EventsList from '../events-list/events-list';
@@ -60,8 +60,8 @@ const Day = connect(
 	}),
 	(dispatch) => ({
 		onDayClick: (date) => {
-			// dispatch({type: eventsActions.SHOW_EVENTS, payload: events})
-			dispatch({type: eventsActions.ADD_EVENT, payload: {description: 'abscuaoeus aueotuaoeuoaeu', date}})
+			dispatch({type: popupsActions.SHOW_EVENTS, payload: date})
+			// dispatch({type: eventsActions.ADD_EVENT, payload: {description: 'abscuaoeus aueotuaoeuoaeu', date}})
 		}
 	})
 )(DayComponent);

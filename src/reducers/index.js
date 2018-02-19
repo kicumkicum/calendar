@@ -2,9 +2,10 @@ import {combineReducers} from 'redux';
 
 import {Calendar} from '../services/calendar';
 import EventsService from '../services/events';
-import {today} from './today';
-import {month} from './month';
-import {events} from './events';
+import today from './today';
+import month from './month';
+import events from './events';
+import popups from './popups';
 
 
 /**
@@ -14,10 +15,9 @@ import {events} from './events';
  * }} deps
  * @return {Reducer<any>}
  */
-const reducers = (deps) => combineReducers({
+export default (deps) => combineReducers({
 	events: events(deps.eventService),
 	month: month(deps.calendar),
+	popups: popups(deps.eventService),
 	today
 });
-
-export default reducers;

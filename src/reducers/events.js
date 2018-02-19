@@ -11,7 +11,7 @@ const MAX_LENGTH = 10;
  * @param {EventsService} eventService
  * @return {function(*=, *)}
  */
-const events = (eventService) => {
+export default (eventService) => {
 	const initialState = eventService.getAllEvents();
 
 	return (state = initialState, action) => {
@@ -36,11 +36,7 @@ const events = (eventService) => {
 /**
  * @enum {string}
  */
-const eventsActions = {
+export const eventsActions = {
 	ADD_EVENT: 'add-event',
-	REMOVE_EVENT: 'remove-event',
-	SHOW_EVENTS: 'show-events'
+	REMOVE_EVENT: 'remove-event'
 };
-
-
-export {events, eventsActions};

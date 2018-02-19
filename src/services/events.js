@@ -1,5 +1,6 @@
 import Event from '../structs/event';
 import IStorage from './i-storage';
+import {isEqDay} from '../utils/calendar';
 
 
 export default class EventsService {
@@ -15,9 +16,14 @@ export default class EventsService {
 	}
 
 	/**
+	 * @param {Date} date
 	 * @return {Array<Event>}
 	 */
-	getEventByDate() {}
+	getEventByDate(date) {
+		return this.getAllEvents().filter((event) => {
+			return isEqDay(event.date, date);
+		});
+	}
 
 	/**
 	 * @param {Date} from
