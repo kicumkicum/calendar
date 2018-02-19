@@ -59,11 +59,10 @@ export default class TodayWatcher {
 	 * @private
 	 */
 	_checkToday() {
-		const now = new Date(this._today);
-		now.setDate(now.getDate() + 1);
+		const now = new Date();
 		if (!calendarUtils.isEqDay(this._today, now)) {
 			this._today = now;
-			this._store.dispatch({type: todayActions.TODAY_CHANGE, payload: now});
+			this._store.dispatch({type: todayActions.TODAY_CHANGE, payload: this._today});
 		}
 
 		this.startWatch(this._today, this._checkInterval);
