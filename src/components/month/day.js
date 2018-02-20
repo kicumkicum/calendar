@@ -60,7 +60,6 @@ const Day = connect(
 	(dispatch) => ({
 		onDayClick: (date) => {
 			dispatch({type: popupsActions.SHOW_EVENTS, payload: date})
-			// dispatch({type: eventsActions.ADD_EVENT, payload: {description: 'abscuaoeus aueotuaoeuoaeu', date}})
 		}
 	})
 )(DayComponent);
