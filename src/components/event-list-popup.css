@@ -17,11 +17,9 @@
   outline: none;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 	bottom: 0;
-  /*height: 98px;*/
   padding: 10px 10px 10px 10px;
   border-radius: 6px;
 	vertical-align: bottom;
-	/*margin-left: 9%;*/
   width: 190px;
   margin: 10px;
 }
@@ -29,9 +27,4 @@
   color: #bbbbbb;
   font-family: Verdana, Arial, sans-serif;
   font-size: 10px;
-}
-
-#send_info{
-	color: #ffffff;
-	font-size: 16px;
 }
