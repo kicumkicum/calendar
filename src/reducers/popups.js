@@ -15,11 +15,21 @@ export default (eventsService) => {
 				type: popupsTypes.EVENTS_LIST,
 				payload: {
 					events: events,
-					day: action.payload
+					day: action.payload,
+					visibleDescriptionEventId: ''
 				}
 			};
 		} else if (action.type === popupsActions.CLOSE_POPUP) {
 			return {};
+		} else if (action.type === popupsActions.SHOW_DESCRIPTION) {
+			return {
+				type: popupsTypes.EVENTS_LIST,
+				payload: {
+					events: state.payload.events,
+					day: state.payload.day,
+					visibleDescriptionEventId: action.payload.visibleDescriptionEventId
+				}
+			};
 		}
 
 		return state;
@@ -32,5 +42,6 @@ export const popupsTypes = {
 
 export const popupsActions = {
 	CLOSE_POPUP: 'close-popup',
-	SHOW_EVENTS: 'show-events'
+	SHOW_EVENTS: 'show-events',
+	SHOW_DESCRIPTION: 'show-description',
 };

@@ -24,10 +24,13 @@ const EventsListPopup = class extends Component {
 	 */
 	render() {
 		return (
-			<div className='eventList'>
+			<div className='eventList'
+			>
 				<EventsList
 					events={this.props.events}
 					maxCount={this.props.maxCount}
+					visibleDescriptionEventId={this.props.visibleDescriptionEventId}
+					onClickHandler={(event) => this.props.onClick(event, this.props)}
 				/>
 				<textarea 
 					className={'input'}
@@ -69,7 +72,13 @@ export default connect(
 			return calendarUtils.isEqDay(currentDay, event.date)
 		});
 
-		return {events};
+		const popupState = {
+			...state.popups,
+
+		};
+		popupState.payload.events = events;
+
+		return popupState.payload;
 	},
 	(dispatch) => ({
 		onInputKeyDown: (e, day) => {
@@ -82,6 +91,13 @@ export default connect(
 			if (e.keyCode === 27) {
 				dispatch({type: popupsActions.CLOSE_POPUP, payload: null});
 			}
+		},
+		onClick: (event, props) => {
+			dispatch({type: popupsActions.SHOW_DESCRIPTION, payload: {
+					...props,
+					visibleDescriptionEventId: event.id
+
+				}})
 		}
 	})
 )(EventsListPopup);

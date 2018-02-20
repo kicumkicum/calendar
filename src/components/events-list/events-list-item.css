@@ -1,4 +1,4 @@
-#cal .eventListItem {
+#cal .eventListItem .name {
   background: #7591cd;
   font: 12px/1 "GenevaCY", GenevaCY;
   color: white;

@@ -16,7 +16,6 @@ export default (calendar) => {
 
 	return (state = initialState, action) => {
 		if (action.type === monthActionType.PRESS_ARROW) {
-			// TODO: Resolve cyclical deps
 			if (action.payload === 'next') {
 				const selectedMonth = calendar.selectNextMonth();
 				return {
@@ -32,10 +31,6 @@ export default (calendar) => {
 					nextMonth: calendar.getNextMonth(selectedMonth.year, selectedMonth.month)
 				};
 			}
-		} else if (action.type === eventsActions.ADD_EVENT) {
-			// TODO:
-		} else if (action.type === eventsActions.REMOVE_EVENT) {
-			// TODO:
 		}
 
 		return state;
