@@ -1,6 +1,6 @@
 import EventsService from '../services/events';
 
-const initialState = [];
+const initialState = {};
 
 
 /**
@@ -10,6 +10,10 @@ const initialState = [];
 export default (eventsService) => {
 	return (state = initialState, action) => {
 		if (action.type === popupsActions.SHOW_EVENTS) {
+			if (state.type === popupsTypes.EVENTS_LIST) {
+				return {};
+			}
+
 			const events = eventsService.getEventByDate(action.payload);
 			return {
 				type: popupsTypes.EVENTS_LIST,
