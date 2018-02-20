@@ -1,6 +1,7 @@
 import {WeekDays, Months, createDaysList} from '../utils/calendar';
 import * as MonthStruct from '../structs/month';
 
+
 const Calendar = class {
 	constructor() {
 		/**
@@ -20,12 +21,6 @@ const Calendar = class {
 		 * @private
 		 */
 		this._days = [];
-
-		/**
-		 * @type {WeekDays}
-		 * @private
-		 */
-		this._firstWeekDay = undefined;
 	}
 
 	/**
@@ -111,5 +106,6 @@ const Calendar = class {
 		return this.selectMonth(date.getFullYear(), /** @type {Months} */(date.getMonth()));
 	}
 }
+
 
 export {Calendar};

@@ -26,12 +26,6 @@ export default class EventsService {
 	}
 
 	/**
-	 * @param {Date} from
-	 * @param {Date} to
-	 */
-	getEventsByPeriod(from, to) {}
-
-	/**
 	 * @return {Array<Event>}
 	 */
 	getAllEvents() {

@@ -34,6 +34,7 @@ export const createWeeksList = (currentMonth, prevMonth, nextMonth, _monthStartD
 	return weeksData;
 };
 
+
 /**
  * @param {number} year
  * @param {Months}  month
@@ -126,6 +127,7 @@ export const WeekDays = {
 	SUNDAY: 'sunday'
 };
 
+
 /**
  * @type {Array<WeekDays>}
  */
@@ -138,6 +140,7 @@ export const WeekDaysMap = [
 	WeekDays.FRIDAY,
 	WeekDays.SATURDAY,
 ];
+
 
 /**
  * @enum {number}
