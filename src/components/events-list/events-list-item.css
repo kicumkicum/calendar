@@ -20,12 +20,14 @@
 #cal .eventListItem .remove {
   position: absolute;
   right: 20px;
+  cursor: pointer;
 }
 #cal .eventListItem .description {
   font: 12px/1 "GenevaCY", Verdana, Arial, 'monospace';
   color: dimgray;
   margin: auto;
   margin-top: 5px;
+  margin-left: 17px;
   width: 88%;
   height: 23px;
   text-align: left;
