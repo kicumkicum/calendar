@@ -23,7 +23,6 @@ const DayComponent = (props) => {
 	const myEvents = props.events.filter((event) => {
 		return calendarUtils.isEqDay(event.date, props.day.date);
 	});
-//		{/*<td className={classes} onClick={() => props.onDayClick(props.day.events)}>*/}
 
 	return (
 		<td className={classes} onClick={() => !isBlocked && props.onDayClick(props.day.date)}>
