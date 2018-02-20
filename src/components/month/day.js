@@ -18,7 +18,7 @@ import EventsList from '../events-list/events-list';
  */
 const DayComponent = (props) => {
 	const { isToday, isBlocked } = props.day;
-	const classes = `${isBlocked ? 'nil' : ''} ${isToday() ? 'today' : ''}`;
+	const classes = `day-cell ${isBlocked ? 'nil' : ''} ${isToday() ? 'today' : ''}`.trim();
 
 	const myEvents = props.events.filter((event) => {
 		return calendarUtils.isEqDay(event.date, props.day.date);
@@ -31,7 +31,7 @@ const DayComponent = (props) => {
 				<span className={'event'}>{createEventsMessage(myEvents)}</span>
 				<span className={'date'} >{props.day.toString()}</span>
 			</div>
-			<EventsList events={myEvents} />
+			<EventsList events={myEvents} maxCount={4} />
 		</td>
 	);
 };

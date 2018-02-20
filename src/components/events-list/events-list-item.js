@@ -1,8 +1,9 @@
 import React from 'react';
 
+import './events-list-item.css';
 
 export default (props) => {
 	return (
-		<tr className={'eventListItem'}><td>{props.event.name}</td></tr>
+		<div className={'eventListItem'}>{props.event.name}</div>
 	);
 };

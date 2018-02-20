@@ -39,7 +39,7 @@ class App extends Component {
 	_showEventsListPopup(payload) {
 		return (
 			<div className='popup'>
-				<EventListPopup events={payload.events} day={payload.day}/>
+				<EventListPopup events={payload.events} day={payload.day} maxCount={Infinity}/>
 			</div>
 		);
 	}

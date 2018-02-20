@@ -6,6 +6,7 @@ import Event from '../structs/event';
 import {connect} from 'react-redux';
 import {eventsActions} from '../reducers/events';
 import {popupsActions} from '../reducers/popups';
+import * as calendarUtils from '../utils/calendar';
 
 
 /**
@@ -15,20 +16,13 @@ import {popupsActions} from '../reducers/popups';
  * @return {*}
  */
 const EventsListPopup = class extends Component {
-	constructor(props) {
-		super(props);
-
-		console.log(props)
-		this._day = props.day;
-	}
-
 	/**
 	 * @override
 	 */
 	render() {
 		return (
 			<div className='eventList'>
-				<EventsList events={this.props.events} />
+				<EventsList events={this.props.events} maxCount={this.props.maxCount} />
 				<input onKeyDown={(e) => (console.log(this.props), this.props.onInputKeyDown(e, this.props.day))} className={'input'}/>
 			</div>
 		);
@@ -59,8 +53,12 @@ const EventsListPopup = class extends Component {
 
 export default connect(
 	(state) => {
-		console.log(state);
-		return {};
+		const currentDay = state.popups.payload.day;
+		const events = state.events.filter((event) => {
+			return calendarUtils.isEqDay(currentDay, event.date)
+		});
+
+		return {events};
 	},
 	(dispatch) => ({
 		onInputKeyDown: (e, day) => {

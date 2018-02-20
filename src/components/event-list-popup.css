@@ -7,9 +7,6 @@
 	bottom: 0;
 	left: 0;
 	transition: opacity 400ms ease-in;
-}
-
-.eventList {
 	width: 292px;
 	height: 432px;
 	margin: 15% auto;
@@ -27,11 +24,12 @@
 	/*margin-top: 50px;*/
 }
 
-.eventList.input {
-	position: fixed;
+.eventList .input {
 	bottom: 0;
 	width: 80%;
 	vertical-align: bottom;
+	margin-left: 9%;
+	margin-top: 10px;
 }
 
 #send_info{
