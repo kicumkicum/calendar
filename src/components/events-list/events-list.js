@@ -8,6 +8,7 @@ import EventStruct from '../../structs/event';
 /**
  * @param {{
  *      events: Array<EventStruct>,
+ *      canBeRemoved: boolean,
  *      maxCount: number,
  *      visibleDescriptionEventId: string,
  *      onClickHandler: function(string)
@@ -15,7 +16,6 @@ import EventStruct from '../../structs/event';
  * @return {*}
  */
 export default (props) => {
-	// debugger
 	return (
 		<div className='eventsList'>
 				{props.events.filter((event, i) => i < props.maxCount)
@@ -23,6 +23,7 @@ export default (props) => {
 						<EventsListItem
 							event={eventListItem}
 							key={String(i)}
+							canBeRemoved={props.canBeRemoved}
 							onClickHandler={props.onClickHandler}
 							visibleDescription={eventListItem.id === props.visibleDescriptionEventId}
 						/>)

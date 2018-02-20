@@ -30,6 +30,7 @@ const EventsListPopup = class extends Component {
 					events={this.props.events}
 					maxCount={this.props.maxCount}
 					visibleDescriptionEventId={this.props.visibleDescriptionEventId}
+					canBeRemoved={true}
 					onClickHandler={(event) => this.props.onClick(event, this.props)}
 				/>
 				<textarea 

@@ -24,7 +24,7 @@ export default (eventService) => {
 				newEvent
 			];
 		} else if (action.type === eventsActions.REMOVE_EVENT) {
-			eventService.removeEvent(action.payload.id);
+			eventService.removeEvent(action.payload);
 			return eventService.getAllEvents();
 		}
 

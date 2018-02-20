@@ -17,6 +17,10 @@
   margin-left: 5px;
   vertical-align: 10px;
 }
+#cal .eventListItem .remove {
+  position: absolute;
+  right: 20px;
+}
 #cal .eventListItem .description {
   font: 12px/1 "GenevaCY", Verdana, Arial, 'monospace';
   color: dimgray;
