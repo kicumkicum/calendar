@@ -22,7 +22,12 @@ export default (props) => {
 				}
 			}
 		>
-			<div className={'name'}>{props.event.name}</div>
+			<div>
+				<div className={'name'}>
+					<span className={'text'}>{props.event.name}</span>
+				</div>
+				<div className={'remove'}></div>
+			</div>
 			<div
 				style={{display: props.visibleDescription ? 'block' : 'none'}}
 				className={'description'}

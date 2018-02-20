@@ -30,7 +30,7 @@ const DayComponent = (props) => {
 				<span className={'event'}>{createEventsMessage(myEvents)}</span>
 				<span className={'date'} >{props.day.toString()}</span>
 			</div>
-			<EventsList events={myEvents} maxCount={4} />
+			<EventsList events={myEvents} maxCount={3} />
 		</td>
 	);
 };

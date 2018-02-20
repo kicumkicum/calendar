@@ -1,5 +1,6 @@
 .eventList {
-	display: block;
+  z-index: 10;
+  display: block;
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
 	top: 0;

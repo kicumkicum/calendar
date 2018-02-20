@@ -1,20 +1,25 @@
 #cal .eventListItem .name {
   background: #7591cd;
-  font: 12px/1 "GenevaCY", Verdana, Arial, 'monospace';
+  font: 13px/1 "GenevaCY", Verdana, Arial, 'monospace';
+  bottom: 3px;
   color: white;
   margin: auto;
-  margin-top: 5px;
+  margin-bottom: 5px;
   width: 88%;
   height: 23px;
-  text-align: center;
+  text-align: left;
   border-radius: 4px;
   font-weight: 600;
   border: 0.1px solid #e6e6e6;
   cursor: default;
 }
+#cal .eventListItem .text {
+  margin-left: 5px;
+  vertical-align: 10px;
+}
 #cal .eventListItem .description {
   font: 12px/1 "GenevaCY", Verdana, Arial, 'monospace';
-  color: #000;
+  color: dimgray;
   margin: auto;
   margin-top: 5px;
   width: 88%;
