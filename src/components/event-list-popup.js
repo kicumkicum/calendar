@@ -8,10 +8,13 @@ import {eventsActions} from '../reducers/events';
 import {popupsActions} from '../reducers/popups';
 import * as calendarUtils from '../utils/calendar';
 
+const INPUT_PLACE_HOLDER_TEXT = 'Ctr + enter - add event';
+
 
 /**
  * @param {{
- *      events: Array<Event>
+ *      events: Array<Event>,
+ *      maxCount: number
  * }} props
  * @return {*}
  */
@@ -22,8 +25,16 @@ const EventsListPopup = class extends Component {
 	render() {
 		return (
 			<div className='eventList'>
-				<EventsList events={this.props.events} maxCount={this.props.maxCount} />
-				<input onKeyDown={(e) => (console.log(this.props), this.props.onInputKeyDown(e, this.props.day))} className={'input'}/>
+				<EventsList
+					events={this.props.events}
+					maxCount={this.props.maxCount}
+				/>
+				<textarea 
+					className={'input'}
+					autoFocus
+					placeholder={INPUT_PLACE_HOLDER_TEXT}
+					onKeyDown={(e) => (this.props.onInputKeyDown(e, this.props.day))}
+				/>
 			</div>
 		);
 	}
@@ -62,7 +73,7 @@ export default connect(
 	},
 	(dispatch) => ({
 		onInputKeyDown: (e, day) => {
-			if (e.keyCode === 13) {
+			if (e.keyCode === 13 && e.ctrlKey) {
 				dispatch({type: eventsActions.ADD_EVENT, payload: {description: e.target.value, date: day}})
 				e.target.value = '';
 			}

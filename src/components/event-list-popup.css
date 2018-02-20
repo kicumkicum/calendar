@@ -4,32 +4,31 @@
 	font-family: Arial, Helvetica, sans-serif;
 	top: 0;
 	right: 0;
-	bottom: 0;
 	left: 0;
 	transition: opacity 400ms ease-in;
-	width: 292px;
-	height: 432px;
+	width: 235px;
 	margin: 15% auto;
-	/*position: relative;*/
-	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
 	background: #f3f3f3;
-	border: 2px solid #d8d8d8;
+	border: 1px solid #d8d8d8;
 }
-
-.eventList.event {
-	/*height: 23px;*/
-	/*width: 275px;*/
-	/*color: #708ac2;*/
-	/*margin-top: 50px;*/
-}
-
 .eventList .input {
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 	bottom: 0;
-	width: 80%;
+  /*height: 98px;*/
+  padding: 10px 10px 10px 10px;
+  border-radius: 6px;
 	vertical-align: bottom;
-	margin-left: 9%;
-	margin-top: 10px;
+	/*margin-left: 9%;*/
+  width: 190px;
+  margin: 10px;
+}
+.eventList .input::-webkit-input-placeholder {
+  color: #bbbbbb;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 10px;
 }
 
 #send_info{
