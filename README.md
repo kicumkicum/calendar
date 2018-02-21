@@ -7,3 +7,8 @@
 `npm install`
 `npm start`
 `Open http://localhost:1300 in Chromium`
+
+
+## Ремарка
+
+Локализация календаря определяется на основе локали браузера.
