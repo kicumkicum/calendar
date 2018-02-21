@@ -9,7 +9,6 @@ import './index.css';
 import App from './App';
 import {Calendar} from './services/calendar';
 import reducer from './reducers';
-import * as calendarUtils from './utils/calendar';
 import EventService from './services/events';
 import LocalStorage from './services/storage';
 import TodayWatcher from './services/today-watcher';
@@ -20,7 +19,8 @@ const eventService = new EventService(eventsStorage);
 
 const calendar = new Calendar();
 
-calendar.selectMonth(2018, calendarUtils.Months.FEBRUARY);
+const now = new Date();
+calendar.selectMonth(now.getFullYear(), now.getMonth());
 
 const store = createStore(reducer({calendar, eventService}), composeWithDevTools(applyMiddleware(thunk)));
 const todayWatcher = new TodayWatcher(store);
